@@ -5,11 +5,16 @@ export default function CarDivider() {
     <>
       <style>{`
         @keyframes drive {
-          from { transform: translateX(-160px) translateY(-85%); }
-          to   { transform: translateX(calc(100vw + 160px)) translateY(-85%); }
+          from { left: -160px; }
+          to   { left: calc(100% + 160px); }
         }
         .car-animate {
           animation: drive 8s linear infinite;
+          position: absolute;
+          top: 75%;
+          transform: translateY(-85%);
+          width: 128px;
+          height: auto;
         }
       `}</style>
 
@@ -26,10 +31,9 @@ export default function CarDivider() {
 
         {/* Auto animado */}
         <img
-          src="/image.png"
+          src="/cardivider.png"
           alt=""
-          className="car-animate absolute w-32 h-auto"
-          style={{ top: '75%', left: 0 }}
+          className="car-animate"
         />
       </div>
     </>

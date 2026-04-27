@@ -105,7 +105,7 @@ export default function Hero() {
         {/* Bajada */}
         <motion.p
           {...fadeUp(0.6)}
-          className="font-sans font-light text-lg text-brand-gray-light max-w-2xl mx-auto mt-6"
+          className="font-sans font-light text-sm sm:text-lg text-brand-gray-light max-w-2xl mx-auto mt-6"
         >
           {t('hero_subtitle')}
         </motion.p>

@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         className="w-14 h-14 rounded-full bg-green-600 hover:bg-green-500 shadow-lg flex items-center justify-center transition-colors duration-300"
       >
-        <FaWhatsapp className="text-white text-2xl" />
+        <FaWhatsapp className="text-white text-3xl" />
       </motion.div>
     </a>
   )

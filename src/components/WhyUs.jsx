@@ -46,7 +46,7 @@ export default function WhyUs() {
             <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
               {t('section_why_tag')}
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-cream max-w-2xl mx-auto">
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-cream max-w-2xl mx-auto">
               {t('section_why_title')}
             </h2>
           </motion.div>
@@ -93,7 +93,7 @@ export default function WhyUs() {
             <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
               {t('section_how_tag')}
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl text-brand-black max-w-2xl mx-auto">
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-black max-w-2xl mx-auto">
               {t('section_how_title')}
             </h2>
           </motion.div>
