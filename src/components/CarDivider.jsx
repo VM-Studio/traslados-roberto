@@ -12,8 +12,8 @@ export default function CarDivider() {
           animation: drive 8s linear infinite;
           position: absolute;
           top: 75%;
-          transform: translateY(-85%);
-          width: 128px;
+          transform: translateY(-70%);
+          width: 160px;
           height: auto;
         }
       `}</style>

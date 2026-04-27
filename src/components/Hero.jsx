@@ -79,10 +79,10 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: 'easeInOut' }}
             >
               <h1 className="text-center">
-                <span className="block font-serif text-3xl sm:text-5xl md:text-7xl font-normal text-brand-cream italic">
+                <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-normal text-brand-cream italic">
                   {heroTitles[currentTitle].line1}
                 </span>
-                <span className="block font-serif text-3xl sm:text-5xl md:text-7xl font-semibold text-brand-gold">
+                <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-semibold text-brand-gold">
                   {heroTitles[currentTitle].line2}
                 </span>
               </h1>
@@ -105,7 +105,7 @@ export default function Hero() {
         {/* Bajada */}
         <motion.p
           {...fadeUp(0.6)}
-          className="font-sans font-light text-sm sm:text-lg text-brand-gray-light max-w-2xl mx-auto mt-6"
+          className="font-sans font-light text-xs sm:text-lg text-brand-gray-light max-w-2xl mx-auto mt-6"
         >
           {t('hero_subtitle')}
         </motion.p>
