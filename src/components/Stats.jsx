@@ -11,14 +11,14 @@ export default function Stats() {
   ]
 
   return (
-    <section className="bg-brand-gold py-16 px-6">
+    <section className="bg-brand-dark py-16 px-6">
       <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat) => (
           <div key={stat.label} className="flex flex-col items-center text-center">
-            <span className="font-serif text-4xl text-brand-black font-bold leading-none">
+            <span className="font-serif text-4xl text-brand-gold font-bold leading-none">
               {stat.number}
             </span>
-            <span className="font-sans text-xs text-brand-black/70 uppercase tracking-widest mt-2 leading-snug">
+            <span className="font-sans text-xs text-white/70 uppercase tracking-widest mt-2 leading-snug">
               {stat.label}
             </span>
           </div>

@@ -12,8 +12,8 @@ const initialForm = {
 }
 
 const inputClass =
-  'bg-transparent border-b border-white/20 focus:border-brand-gold text-brand-cream text-sm py-3 w-full outline-none placeholder:text-brand-gray transition-colors duration-300 font-sans'
-const labelClass = 'block text-xs text-brand-gray-light tracking-widest uppercase font-sans mb-1'
+  'bg-transparent border-b border-brand-gold/30 focus:border-brand-gold text-brand-text text-sm py-3 w-full outline-none placeholder:text-brand-text-soft/50 transition-colors duration-300 font-sans'
+const labelClass = 'block text-xs text-brand-text-soft tracking-widest uppercase font-sans mb-1'
 
 export default function Contact() {
   const { t } = useLanguage()
@@ -31,7 +31,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" className="bg-brand-black py-24 px-4 md:px-6">
+    <section id="contacto" className="bg-brand-surface py-24 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
@@ -46,7 +46,7 @@ export default function Contact() {
           <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
             {t('section_contact_tag')}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-cream max-w-2xl mx-auto">
+          <h2 className="font-serif text-4xl md:text-5xl text-brand-text max-w-2xl mx-auto">
             {t('section_contact_title')}
           </h2>
         </motion.div>
@@ -112,7 +112,7 @@ export default function Contact() {
                       value={form.servicio}
                       onChange={handleChange}
                       required
-                      className={`${inputClass} bg-brand-dark`}
+                      className={`${inputClass} bg-brand-surface-alt`}
                     >
                       <option value="" disabled>{t('form_service_placeholder')}</option>
                       <option value="tour">{t('form_service_1')}</option>

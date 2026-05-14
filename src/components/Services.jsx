@@ -1,12 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaMapMarkedAlt, FaGlassCheers, FaKey } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../LanguageContext'
 
 export default function Services() {
   const { t } = useLanguage()
-  const navigate = useNavigate()
   const [openId, setOpenId] = useState(null)
 
   const services = [
@@ -42,7 +40,7 @@ export default function Services() {
   const toggle = (id) => setOpenId((prev) => (prev === id ? null : id))
 
   return (
-    <section id="servicios" className="bg-brand-dark py-24 px-4 md:px-6">
+    <section id="servicios" className="bg-brand-surface py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -57,7 +55,7 @@ export default function Services() {
           <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
             {t('section_services_tag')}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-cream max-w-2xl mx-auto">
+          <h2 className="font-serif text-4xl md:text-5xl text-brand-text max-w-2xl mx-auto">
             {t('section_services_title')}
           </h2>
         </motion.div>
@@ -73,8 +71,8 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
-                className={`relative bg-brand-black border p-6 md:p-8 flex flex-col overflow-hidden transition-colors duration-300 ${
-                  isOpen ? 'border-brand-gold/50' : 'border-white/5 hover:border-brand-gold/30'
+                className={`relative bg-white border p-6 md:p-8 flex flex-col overflow-hidden transition-colors duration-300 ${
+                  isOpen ? 'border-brand-gold/60' : 'border-brand-gold/20 hover:border-brand-gold/60'
                 }`}
               >
                 {/* Top gold line */}
@@ -93,7 +91,7 @@ export default function Services() {
                 <service.Icon className="text-3xl text-brand-gold/50 mb-5" />
 
                 {/* Title */}
-                <h3 className="font-serif text-xl text-brand-cream leading-snug mb-5">
+                <h3 className="font-serif text-xl text-brand-text leading-snug mb-5">
                   {service.title}
                 </h3>
 
@@ -128,7 +126,7 @@ export default function Services() {
                         <div className="w-8 h-px bg-brand-gold/30" />
 
                         {/* Description */}
-                        <p className="font-sans font-light text-sm text-brand-gray-light leading-relaxed">
+                        <p className="font-sans font-light text-sm text-brand-text-soft leading-relaxed">
                           {service.description}
                         </p>
 
@@ -137,14 +135,14 @@ export default function Services() {
                           {service.features.map((feat) => (
                             <li key={feat} className="flex items-center">
                               <span className="w-1 h-1 rounded-full bg-brand-gold mr-2 shrink-0" />
-                              <span className="font-sans text-xs text-brand-gray-light">{feat}</span>
+                              <span className="font-sans text-xs text-brand-text-soft">{feat}</span>
                             </li>
                           ))}
                         </ul>
 
-                        {/* CTA button → /reservar */}
+                        {/* CTA button → #contacto */}
                         <button
-                          onClick={() => navigate('/reservar')}
+                          onClick={() => { const el = document.querySelector('#contacto'); if (el) el.scrollIntoView({ behavior: 'smooth' }) }}
                           className="mt-4 self-start border border-brand-gold text-brand-gold font-sans text-xs tracking-widest uppercase px-5 py-2.5 hover:bg-brand-gold hover:text-brand-black transition-all duration-300"
                         >
                           {service.cta}

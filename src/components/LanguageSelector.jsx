@@ -33,7 +33,7 @@ export default function LanguageSelector() {
         className="flex items-center gap-2 cursor-pointer select-none"
       >
         <span className="text-lg leading-none">{active.flag}</span>
-        <span className="font-sans text-xs font-medium tracking-widest text-brand-cream uppercase">
+        <span className="font-sans text-xs font-medium tracking-widest text-brand-text uppercase">
           {active.label}
         </span>
         <FaChevronDown

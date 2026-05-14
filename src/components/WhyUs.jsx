@@ -31,7 +31,7 @@ export default function WhyUs() {
   return (
     <>
       {/* ── SECCIÓN 1: POR QUÉ ELEGIRNOS ── */}
-      <section id="por-que" className="bg-brand-black py-24 px-4 md:px-6">
+      <section id="por-que" className="bg-white py-24 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
@@ -46,15 +46,19 @@ export default function WhyUs() {
             <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
               {t('section_why_tag')}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-brand-cream max-w-2xl mx-auto">
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-text max-w-2xl mx-auto">
               {t('section_why_title')}
             </h2>
           </motion.div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3">
             {reasons.map((reason, i) => {
               const Icon = reason.icon
+              const col = i % 3
+              const isFirstRow = i < 3
+              const isLast = i === reasons.length - 1
+
               return (
                 <motion.div
                   key={reason.titleKey}
@@ -62,12 +66,17 @@ export default function WhyUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.1 }}
-                  className="p-6"
+                  className={[
+                    'p-8',
+                    !isLast        ? 'border-b border-brand-gold/15'        : '',  // mobile: sep entre todos
+                    col < 2        ? 'md:border-r md:border-brand-gold/15'  : '',  // desktop: sep vertical
+                    isFirstRow     ? 'md:border-b md:border-brand-gold/15'  : 'md:border-b-0', // desktop: sep horizontal
+                  ].join(' ')}
                 >
                   <Icon className="text-2xl text-brand-gold mb-4" />
                   <div className="w-8 h-px bg-brand-gold/40 mb-4" />
-                  <h3 className="font-serif text-lg text-brand-cream">{t(reason.titleKey)}</h3>
-                  <p className="font-sans font-light text-sm text-brand-gray-light leading-relaxed mt-2">
+                  <h3 className="font-serif text-lg text-brand-text">{t(reason.titleKey)}</h3>
+                  <p className="font-sans font-light text-sm text-brand-text-soft leading-relaxed mt-2">
                     {t(reason.descKey)}
                   </p>
                 </motion.div>
@@ -78,7 +87,7 @@ export default function WhyUs() {
       </section>
 
       {/* ── SECCIÓN 2: CÓMO FUNCIONA ── */}
-      <section id="como-funciona" className="bg-white py-24 px-4 md:px-6">
+      <section id="como-funciona" className="bg-brand-surface py-24 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
 
           {/* Header */}
@@ -93,7 +102,7 @@ export default function WhyUs() {
             <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
               {t('section_how_tag')}
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-brand-black max-w-2xl mx-auto">
+            <h2 className="font-serif text-4xl md:text-5xl text-brand-text max-w-2xl mx-auto">
               {t('section_how_title')}
             </h2>
           </motion.div>
@@ -112,8 +121,8 @@ export default function WhyUs() {
                   <span className="font-serif text-5xl text-brand-gold/30 font-bold leading-none">
                     {step.number}
                   </span>
-                  <h3 className="font-serif text-lg text-brand-black mt-2">{t(step.titleKey)}</h3>
-                  <p className="font-sans font-light text-sm text-zinc-500 mt-2 leading-relaxed">
+                  <h3 className="font-serif text-lg text-brand-text mt-2">{t(step.titleKey)}</h3>
+                  <p className="font-sans font-light text-sm text-brand-text-soft mt-2 leading-relaxed">
                     {t(step.descKey)}
                   </p>
                 </motion.div>

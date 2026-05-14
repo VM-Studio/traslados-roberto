@@ -12,7 +12,7 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="bg-brand-dark py-24 px-4 md:px-6">
+    <section className="bg-white py-24 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
@@ -27,7 +27,7 @@ export default function Testimonials() {
           <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase mb-3">
             {t('section_testimonials_tag')}
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-brand-cream max-w-2xl mx-auto">
+          <h2 className="font-serif text-4xl md:text-5xl text-brand-text max-w-2xl mx-auto">
             {t('section_testimonials_title')}
           </h2>
         </motion.div>
@@ -41,22 +41,22 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
-              className="bg-brand-black border border-white/5 p-8 flex flex-col"
+              className="bg-brand-surface border border-brand-gold/20 p-8 flex flex-col"
             >
               {/* Comillas decorativas */}
-              <span className="font-serif text-6xl text-brand-gold/20 leading-none select-none">
+              <span className="font-serif text-6xl text-brand-gold/30 leading-none select-none">
                 &ldquo;
               </span>
 
               {/* Texto del testimonio */}
-              <p className="font-serif text-base italic text-brand-cream/80 leading-relaxed mt-2 flex-1">
+              <p className="font-serif text-base italic text-brand-text leading-relaxed mt-2 flex-1">
                 {t(item.textKey)}
               </p>
 
               {/* Autor */}
               <div className="mt-6 pt-6 border-t border-white/5">
                 <p className="font-sans text-sm font-medium text-brand-gold">{t(item.nameKey)}</p>
-                <p className="font-sans text-xs text-brand-gray-light mt-0.5">{t(item.roleKey)}</p>
+                <p className="font-sans text-xs text-brand-text-soft mt-0.5">{t(item.roleKey)}</p>
               </div>
             </motion.div>
           ))}

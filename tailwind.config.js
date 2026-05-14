@@ -11,6 +11,10 @@ export default {
         'brand-cream': '#F5F0EB',
         'brand-gray': '#6B6B6B',
         'brand-gray-light': '#A0A0A0',
+        'brand-text': '#0A0A0A',
+        'brand-text-soft': '#4A4A4A',
+        'brand-surface': '#F5F0EB',
+        'brand-surface-alt': '#EFEFEF',
       },
       fontFamily: {
         'serif': ['Playfair Display', 'Georgia', 'serif'],

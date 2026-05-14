@@ -18,7 +18,7 @@ export default function CarDivider() {
         }
       `}</style>
 
-      <div className="relative w-full h-20 bg-brand-black overflow-hidden">
+      <div className="relative w-full h-20 bg-brand-surface overflow-hidden">
 
         {/* Línea dorada que se desvanece en los extremos */}
         <div

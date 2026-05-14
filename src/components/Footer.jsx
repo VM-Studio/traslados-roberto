@@ -28,11 +28,11 @@ export default function Footer() {
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
               className="flex flex-col items-start cursor-pointer"
             >
-              <span className="font-serif text-brand-gold tracking-widest2 text-xl leading-none">
-                ELITE
+              <span className="font-serif text-brand-gold tracking-widest text-lg leading-none">
+                TRASLADOS
               </span>
-              <span className="font-sans font-light text-brand-cream tracking-widest text-xs leading-none mt-0.5">
-                TRANSFERS
+              <span className="font-sans font-light text-white/70 tracking-widest text-xs leading-none mt-0.5 italic">
+                con experiencia
               </span>
             </a>
             <p className="font-sans text-xs text-brand-gray-light leading-relaxed mt-4 max-w-xs">

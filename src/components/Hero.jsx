@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../LanguageContext'
 
 const BG_IMAGE = '' // Reemplazá con la URL de tu imagen de fondo
@@ -13,7 +12,6 @@ const fadeUp = (delay = 0) => ({
 
 export default function Hero() {
   const { t } = useLanguage()
-  const navigate = useNavigate()
   const [currentTitle, setCurrentTitle] = useState(0)
 
   const heroTitles = [
@@ -51,11 +49,10 @@ export default function Hero() {
             : {}
         }
       >
-        {!BG_IMAGE && <div className="w-full h-full bg-zinc-900" />}
+        {!BG_IMAGE && <div className="w-full h-full bg-white" />}
       </motion.div>
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-brand-black/90 via-brand-black/60 to-transparent" />
+      {/* Overlay gradient — quitado para fondo claro */}
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-4xl mx-auto px-6 text-center pt-20 flex flex-col items-center justify-center flex-1">
@@ -63,7 +60,7 @@ export default function Hero() {
         {/* Supertítulo */}
         <motion.p
           {...fadeUp(0.2)}
-          className="font-sans text-xs font-light tracking-widest2 text-brand-gold uppercase mb-6"
+          className="font-sans text-xs font-light tracking-widest sm:tracking-widest2 text-brand-gold uppercase mb-6 leading-relaxed"
         >
           {t('hero_tag')}
         </motion.p>
@@ -79,7 +76,7 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: 'easeInOut' }}
             >
               <h1 className="text-center">
-                <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-normal text-brand-cream italic">
+                <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-normal text-brand-text italic">
                   {heroTitles[currentTitle].line1}
                 </span>
                 <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-semibold text-brand-gold">
@@ -95,7 +92,7 @@ export default function Hero() {
               <div
                 key={i}
                 className={`h-px transition-all duration-500 ${
-                  i === currentTitle ? 'w-8 bg-brand-gold' : 'w-3 bg-white/20'
+                  i === currentTitle ? 'w-8 bg-brand-gold' : 'w-3 bg-brand-text/20'
                 }`}
               />
             ))}
@@ -105,7 +102,7 @@ export default function Hero() {
         {/* Bajada */}
         <motion.p
           {...fadeUp(0.6)}
-          className="font-sans font-light text-xs sm:text-lg text-brand-gray-light max-w-2xl mx-auto mt-6"
+          className="font-sans font-light text-xs sm:text-lg text-brand-text-soft max-w-2xl mx-auto mt-6"
         >
           {t('hero_subtitle')}
         </motion.p>
@@ -116,14 +113,14 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
         >
           <button
-            onClick={() => navigate('/reservar')}
+            onClick={() => scrollTo('#contacto')}
             className="bg-brand-gold text-brand-black font-sans text-sm font-medium tracking-widest uppercase px-8 py-4 hover:bg-brand-gold/90 transition-all duration-300 w-full sm:w-auto"
           >
             {t('hero_cta_primary')}
           </button>
           <button
             onClick={() => scrollTo('#servicios')}
-            className="border border-brand-cream/30 text-brand-cream font-sans text-sm font-light tracking-widest uppercase px-8 py-4 hover:border-brand-gold hover:text-brand-gold transition-all duration-300 w-full sm:w-auto"
+            className="border border-brand-text/20 text-brand-text font-sans text-sm font-light tracking-widest uppercase px-8 py-4 hover:border-brand-gold hover:text-brand-gold transition-all duration-300 w-full sm:w-auto"
           >
             {t('hero_cta_secondary')}
           </button>
@@ -132,8 +129,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="relative z-20 flex flex-col items-center gap-2 pb-10">
-        <span className="font-sans text-xs tracking-widest text-brand-gray uppercase">scroll</span>
-        <div className="w-px h-10 bg-brand-gray/30 relative overflow-hidden">
+        <span className="font-sans text-xs tracking-widest text-brand-text-soft uppercase">scroll</span>
+        <div className="w-px h-10 bg-brand-text/10 relative overflow-hidden">
           <motion.div
             className="absolute top-0 left-0 w-full h-1/2 bg-brand-gold"
             animate={{ y: [0, 20] }}

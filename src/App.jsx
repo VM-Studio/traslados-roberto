@@ -10,7 +10,6 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
-import ReservarPage from './pages/ReservarPage'
 
 function HomePage() {
   return (
@@ -36,7 +35,6 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/reservar" element={<ReservarPage />} />
     </Routes>
   )
 }
