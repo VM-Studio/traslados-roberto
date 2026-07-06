@@ -2,29 +2,21 @@ import { motion } from 'framer-motion'
 import { useLanguage } from '../LanguageContext'
 
 // ─── DATOS DE LOS CHOFERES ───────────────────────────────────────────────────
-// Reemplazar `photo` con la ruta real cuando el cliente provea las imágenes.
-// Ejemplo: photo: '/choferes/roberto.jpg'
 const drivers = [
   {
     id: 1,
-    photo: '',           // ← agregar ruta de imagen
-    initials: 'R.G.',
     nameKey: 'driver1_name',
     roleKey: 'driver1_role',
     descKey: 'driver1_desc',
   },
   {
     id: 2,
-    photo: '',           // ← agregar ruta de imagen
-    initials: 'M.L.',
     nameKey: 'driver2_name',
     roleKey: 'driver2_role',
     descKey: 'driver2_desc',
   },
   {
     id: 3,
-    photo: '',           // ← agregar ruta de imagen
-    initials: 'C.R.',
     nameKey: 'driver3_name',
     roleKey: 'driver3_role',
     descKey: 'driver3_desc',
@@ -55,6 +47,30 @@ export default function Gallery() {
           </h2>
         </motion.div>
 
+        {/* Tira de fotos: imagen principal (3/4) + imagen secundaria (1/4) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="flex flex-col sm:flex-row w-full mb-16 overflow-hidden border border-brand-gold/20"
+        >
+          <div className="w-full sm:w-3/4 h-48 sm:h-72 md:h-96 overflow-hidden">
+            <img
+              src="/nosotros1.png"
+              alt="Nosotros"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div className="w-full sm:w-1/4 h-32 sm:h-72 md:h-96 overflow-hidden border-t sm:border-t-0 sm:border-l border-brand-gold/20">
+            <img
+              src="/nosotros2.png"
+              alt="Nosotros"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        </motion.div>
+
         {/* Grid de choferes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {drivers.map((driver, i) => (
@@ -66,30 +82,6 @@ export default function Gallery() {
               transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
               className="flex flex-col"
             >
-              {/* Foto / Placeholder */}
-              <div className="relative w-full aspect-square bg-white border border-brand-gold/20 overflow-hidden">
-                {driver.photo ? (
-                  <img
-                    src={driver.photo}
-                    alt={t(driver.nameKey)}
-                    className="w-full h-full object-cover object-top"
-                  />
-                ) : (
-                  /* Placeholder elegante hasta que lleguen las fotos */
-                  <div className="w-full h-full bg-gradient-to-b from-brand-surface-alt to-brand-surface flex flex-col items-center justify-center gap-3">
-                    <span className="font-serif text-4xl text-brand-gold/40 select-none">
-                      {driver.initials}
-                    </span>
-                    <div className="w-8 h-px bg-brand-gold/20" />
-                    <span className="font-sans text-xs tracking-widest text-brand-text-soft/40 uppercase">
-                      foto próximamente
-                    </span>
-                  </div>
-                )}
-                {/* Línea dorada inferior decorativa */}
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-brand-gold/30" />
-              </div>
-
               {/* Info */}
               <div className="pt-5 pb-2">
                 <p className="font-sans text-xs tracking-widest text-brand-gold uppercase mb-1">

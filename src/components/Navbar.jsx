@@ -51,7 +51,9 @@ export default function Navbar() {
             <span className="font-serif text-brand-gold tracking-widest text-lg leading-none">
               TRASLADOS
             </span>
-            <span className="font-sans font-light text-brand-text tracking-widest text-xs leading-none mt-0.5 italic">
+            <span className={`font-sans font-light tracking-widest text-xs leading-none mt-0.5 italic transition-colors duration-500 ${
+              scrolled ? 'text-brand-text' : 'text-white'
+            }`}>
               con experiencia
             </span>
           </a>
@@ -63,7 +65,9 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleLinkClick(link.href) }}
-                className="font-sans text-sm font-light text-brand-text-soft hover:text-brand-gold tracking-widest uppercase transition-colors duration-300"
+                className={`font-sans text-sm font-light tracking-widest uppercase transition-colors duration-300 hover:text-brand-gold ${
+                  scrolled ? 'text-brand-text-soft' : 'text-white'
+                }`}
               >
                 {t(link.labelKey)}
               </a>
@@ -81,8 +85,8 @@ export default function Navbar() {
 
             {/* Separador + Language selector (desktop) */}
             <div className="hidden md:flex items-center gap-3">
-              <div className="w-px h-4 bg-white/20" />
-              <LanguageSelector />
+              <div className={`w-px h-4 transition-colors duration-500 ${scrolled ? 'bg-brand-text/20' : 'bg-white/30'}`} />
+              <LanguageSelector light={!scrolled} />
             </div>
 
             {/* Hamburger button */}

@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../LanguageContext'
 
-const BG_IMAGE = '' // Reemplazá con la URL de tu imagen de fondo
+// Usaremos la imagen en public/hero.png
+const BG_IMAGE = '/hero.png'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -38,19 +39,14 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Background */}
-      <motion.div
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2, ease: 'easeOut' }}
-        className="absolute inset-0 z-0"
-        style={
-          BG_IMAGE
-            ? { backgroundImage: `url(${BG_IMAGE})`, backgroundSize: 'cover', backgroundPosition: 'center' }
-            : {}
-        }
-      >
-        {!BG_IMAGE && <div className="w-full h-full bg-white" />}
-      </motion.div>
+      {/* Background image (no zoom animation) */}
+      <div
+        className="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover"
+        style={BG_IMAGE ? { backgroundImage: `url(${BG_IMAGE})` } : {}}
+      />
+
+      {/* Semi-transparent overlay so text stays readable */}
+      <div className="absolute inset-0 z-10 bg-black/60 pointer-events-none" />
 
       {/* Overlay gradient — quitado para fondo claro */}
 
@@ -60,13 +56,13 @@ export default function Hero() {
         {/* Supertítulo */}
         <motion.p
           {...fadeUp(0.2)}
-          className="font-sans text-xs font-light tracking-widest sm:tracking-widest2 text-brand-gold uppercase mb-6 leading-relaxed"
+          className="w-full max-w-xl mx-auto px-2 font-sans text-xs font-light tracking-widest sm:tracking-widest2 text-brand-gold uppercase mb-6 leading-relaxed"
         >
           {t('hero_tag')}
         </motion.p>
 
         {/* Título principal — rotación animada */}
-        <motion.div {...fadeUp(0.4)} className="leading-tight min-h-[120px] sm:min-h-[160px] md:min-h-[200px] flex flex-col items-center justify-center">
+        <motion.div {...fadeUp(0.4)} className="w-full px-2 leading-tight min-h-[120px] sm:min-h-[160px] md:min-h-[200px] flex flex-col items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentTitle}
@@ -75,11 +71,11 @@ export default function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6, ease: 'easeInOut' }}
             >
-              <h1 className="text-center">
-                <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-normal text-brand-text italic">
+              <h1 className="w-full text-center text-balance">
+                <span className="block font-serif text-4xl sm:text-5xl md:text-7xl font-normal text-white italic">
                   {heroTitles[currentTitle].line1}
                 </span>
-                <span className="block font-serif text-5xl sm:text-5xl md:text-7xl font-semibold text-brand-gold">
+                <span className="block font-serif text-4xl sm:text-5xl md:text-7xl font-semibold text-brand-gold">
                   {heroTitles[currentTitle].line2}
                 </span>
               </h1>
@@ -92,7 +88,7 @@ export default function Hero() {
               <div
                 key={i}
                 className={`h-px transition-all duration-500 ${
-                  i === currentTitle ? 'w-8 bg-brand-gold' : 'w-3 bg-brand-text/20'
+                  i === currentTitle ? 'w-8 bg-brand-gold' : 'w-3 bg-white/30'
                 }`}
               />
             ))}
@@ -102,7 +98,7 @@ export default function Hero() {
         {/* Bajada */}
         <motion.p
           {...fadeUp(0.6)}
-          className="font-sans font-light text-xs sm:text-lg text-brand-text-soft max-w-2xl mx-auto mt-6"
+          className="font-sans font-light text-xs sm:text-lg text-white max-w-2xl mx-auto mt-6"
         >
           {t('hero_subtitle')}
         </motion.p>
@@ -120,7 +116,7 @@ export default function Hero() {
           </button>
           <button
             onClick={() => scrollTo('#servicios')}
-            className="border border-brand-text/20 text-brand-text font-sans text-sm font-light tracking-widest uppercase px-8 py-4 hover:border-brand-gold hover:text-brand-gold transition-all duration-300 w-full sm:w-auto"
+            className="border border-white/30 text-white font-sans text-sm font-light tracking-widest uppercase px-8 py-4 hover:border-brand-gold hover:text-brand-gold transition-all duration-300 w-full sm:w-auto"
           >
             {t('hero_cta_secondary')}
           </button>
@@ -129,8 +125,8 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="relative z-20 flex flex-col items-center gap-2 pb-10">
-        <span className="font-sans text-xs tracking-widest text-brand-text-soft uppercase">scroll</span>
-        <div className="w-px h-10 bg-brand-text/10 relative overflow-hidden">
+        <span className="font-sans text-xs tracking-widest text-white uppercase">scroll</span>
+        <div className="w-px h-10 bg-white/20 relative overflow-hidden">
           <motion.div
             className="absolute top-0 left-0 w-full h-1/2 bg-brand-gold"
             animate={{ y: [0, 20] }}

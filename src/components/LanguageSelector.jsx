@@ -8,7 +8,7 @@ const languages = [
   { code: 'en', label: 'ENG', flag: '🇺🇸' },
 ]
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ light = false }) {
   const { lang, setLang } = useLanguage()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
@@ -33,7 +33,9 @@ export default function LanguageSelector() {
         className="flex items-center gap-2 cursor-pointer select-none"
       >
         <span className="text-lg leading-none">{active.flag}</span>
-        <span className="font-sans text-xs font-medium tracking-widest text-brand-text uppercase">
+        <span className={`font-sans text-xs font-medium tracking-widest uppercase transition-colors duration-500 ${
+          light ? 'text-white' : 'text-brand-text'
+        }`}>
           {active.label}
         </span>
         <FaChevronDown

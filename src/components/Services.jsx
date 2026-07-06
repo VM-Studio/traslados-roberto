@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaMapMarkedAlt, FaGlassCheers, FaKey } from 'react-icons/fa'
+import { FaMapMarkedAlt, FaGlassCheers } from 'react-icons/fa'
 import { useLanguage } from '../LanguageContext'
 
 export default function Services() {
@@ -25,15 +25,6 @@ export default function Services() {
       description: t('service2_desc'),
       features: [t('service2_f1'), t('service2_f2'), t('service2_f3'), t('service2_f4')],
       cta: t('service2_cta'),
-    },
-    {
-      id: 3,
-      Icon: FaKey,
-      tag: t('service3_tag'),
-      title: t('service3_title'),
-      description: t('service3_desc'),
-      features: [t('service3_f1'), t('service3_f2'), t('service3_f3'), t('service3_f4')],
-      cta: t('service3_cta'),
     },
   ]
 
@@ -61,7 +52,7 @@ export default function Services() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
           {services.map((service, i) => {
             const isOpen = openId === service.id
             return (
@@ -71,7 +62,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: 'easeOut', delay: i * 0.15 }}
-                className={`relative bg-white border p-6 md:p-8 flex flex-col overflow-hidden transition-colors duration-300 ${
+                className={`relative bg-white border p-8 md:p-10 flex flex-col overflow-hidden transition-colors duration-300 ${
                   isOpen ? 'border-brand-gold/60' : 'border-brand-gold/20 hover:border-brand-gold/60'
                 }`}
               >
@@ -88,10 +79,10 @@ export default function Services() {
                 </span>
 
                 {/* Icon */}
-                <service.Icon className="text-3xl text-brand-gold/50 mb-5" />
+                <service.Icon className="text-4xl text-brand-gold/50 mb-5" />
 
                 {/* Title */}
-                <h3 className="font-serif text-xl text-brand-text leading-snug mb-5">
+                <h3 className="font-serif text-2xl text-brand-text leading-snug mb-5">
                   {service.title}
                 </h3>
 

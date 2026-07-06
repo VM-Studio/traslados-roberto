@@ -3,7 +3,7 @@ const translations = {
     // NAVBAR
     nav_services: "Servicios",
     nav_why: "Nuestra experiencia",
-    nav_fleet: "Vehículos",
+    nav_fleet: "Nosotros",
     nav_contact: "Contacto",
     nav_cta: "CONSULTAR",
 
@@ -148,7 +148,7 @@ const translations = {
     // NAVBAR
     nav_services: "Services",
     nav_why: "Our experience",
-    nav_fleet: "Vehicles",
+    nav_fleet: "About us",
     nav_contact: "Contact",
     nav_cta: "INQUIRE",
 
