@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../LanguageContext'
 
-// Usaremos la imagen en public/hero.png
-const BG_IMAGE = '/hero.png'
+// Imagen vertical/cuadrada para celular y panorámica para tablet/desktop
+const BG_IMAGE_MOBILE = '/herocelular.png'
+const BG_IMAGE_DESKTOP = '/hero.png'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -38,11 +39,14 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background image — imagen completa sin recorte/zoom en mobile (bg-contain),
-          cubre todo el hero desde tablet/desktop hacia arriba (sm:bg-cover) */}
+      {/* Background image — herocelular.png en mobile, hero.png desde tablet/desktop */}
       <div
-        className="absolute inset-0 z-0 bg-brand-black bg-center bg-no-repeat bg-contain sm:bg-cover"
-        style={BG_IMAGE ? { backgroundImage: `url(${BG_IMAGE})` } : {}}
+        className="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover sm:hidden"
+        style={{ backgroundImage: `url(${BG_IMAGE_MOBILE})` }}
+      />
+      <div
+        className="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover hidden sm:block"
+        style={{ backgroundImage: `url(${BG_IMAGE_DESKTOP})` }}
       />
 
       {/* Semi-transparent overlay so text stays readable */}
