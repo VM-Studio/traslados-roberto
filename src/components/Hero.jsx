@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../LanguageContext'
 
 // Imagen vertical/cuadrada para celular y panorámica para tablet/desktop
-const BG_IMAGE_MOBILE = '/herocelular.png'
+const BG_IMAGE_MOBILE = '/herocelular1.png'
 const BG_IMAGE_DESKTOP = '/hero.png'
 
 const fadeUp = (delay = 0) => ({
@@ -39,7 +39,7 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background image — herocelular.png en mobile, hero.png desde tablet/desktop */}
+      {/* Background image — herocelular1.png en mobile, hero.png desde tablet/desktop */}
       <div
         className="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover sm:hidden"
         style={{ backgroundImage: `url(${BG_IMAGE_MOBILE})` }}
