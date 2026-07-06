@@ -53,20 +53,20 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex flex-col sm:flex-row w-full mb-16 overflow-hidden border border-brand-gold/20"
+          className="flex w-full mb-16 overflow-hidden border border-brand-gold/20 bg-brand-surface"
         >
-          <div className="w-full sm:w-3/4 h-48 sm:h-72 md:h-96 overflow-hidden">
+          <div className="w-3/4 aspect-[1916/821] overflow-hidden bg-brand-surface">
             <img
               src="/nosotros1.png"
               alt="Nosotros"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-contain object-center"
             />
           </div>
-          <div className="w-full sm:w-1/4 h-32 sm:h-72 md:h-96 overflow-hidden border-t sm:border-t-0 sm:border-l border-brand-gold/20">
+          <div className="w-1/4 overflow-hidden border-l border-brand-gold/20 bg-brand-surface">
             <img
               src="/nosotros2.png"
               alt="Nosotros"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-contain object-center"
             />
           </div>
         </motion.div>
