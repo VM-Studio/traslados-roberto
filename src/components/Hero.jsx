@@ -36,12 +36,12 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-dvh flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      {/* Background image (no zoom animation) */}
+      {/* Background image — imagen completa sin recorte/zoom en mobile (bg-contain),
+          cubre todo el hero desde tablet/desktop hacia arriba (sm:bg-cover) */}
       <div
-        className="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover"
+        className="absolute inset-0 z-0 bg-brand-black bg-center bg-no-repeat bg-contain sm:bg-cover"
         style={BG_IMAGE ? { backgroundImage: `url(${BG_IMAGE})` } : {}}
       />
 
@@ -52,14 +52,6 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-4xl mx-auto px-6 text-center pt-20 flex flex-col items-center justify-center flex-1">
-
-        {/* Supertítulo */}
-        <motion.p
-          {...fadeUp(0.2)}
-          className="w-full max-w-xl mx-auto px-2 font-sans text-xs font-light tracking-widest sm:tracking-widest2 text-brand-gold uppercase mb-6 leading-relaxed"
-        >
-          {t('hero_tag')}
-        </motion.p>
 
         {/* Título principal — rotación animada */}
         <motion.div {...fadeUp(0.4)} className="w-full px-2 leading-tight min-h-[120px] sm:min-h-[160px] md:min-h-[200px] flex flex-col items-center justify-center">
