@@ -74,13 +74,13 @@ export default function Footer() {
               </a>
             </div>
             <a
-              href="https://wa.me/54NUMEROCLIENTE"
+              href="https://wa.me/5491157161813"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 font-sans text-sm text-brand-gray-light hover:text-brand-gold transition-colors duration-300"
             >
               <FaWhatsapp className="text-base text-green-500" />
-              +54 [NÚMERO DEL CLIENTE]
+              +54 9 11 5716-1813
             </a>
           </div>
         </div>
