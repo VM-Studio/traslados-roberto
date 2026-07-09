@@ -19,15 +19,35 @@ export default function Contact() {
   const { t } = useLanguage()
   const [form, setForm] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Conectar con EmailJS o backend propio
-    setSubmitted(true)
+    setError('')
+    setLoading(true)
+    try {
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'send_failed')
+      }
+      setSubmitted(true)
+      setForm(initialForm)
+    } catch (err) {
+      console.error('Contact form error:', err)
+      setError(t('form_error'))
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -145,11 +165,18 @@ export default function Contact() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-red-600 font-sans text-center -mb-2">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-brand-gold text-brand-black font-sans text-sm font-medium tracking-widest uppercase py-4 hover:bg-brand-gold-light transition-colors duration-300 mt-2"
+                  disabled={loading}
+                  className="w-full bg-brand-gold text-brand-black font-sans text-sm font-medium tracking-widest uppercase py-4 hover:bg-brand-gold-light transition-colors duration-300 mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {t('form_submit')}
+                  {loading ? t('form_sending') : t('form_submit')}
                 </button>
               </form>
             )}

@@ -46,16 +46,13 @@ export default function Navbar() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="flex flex-col items-center cursor-pointer"
+            className="flex items-center cursor-pointer shrink-0 z-10"
           >
-            <span className="font-serif text-brand-gold tracking-widest text-lg leading-none">
-              TRASLADOS
-            </span>
-            <span className={`font-sans font-light tracking-widest text-xs leading-none mt-0.5 italic transition-colors duration-500 ${
-              scrolled ? 'text-brand-text' : 'text-white'
-            }`}>
-              con experiencia
-            </span>
+            <img
+              src="/logonavbar.png"
+              alt="Traslados con experiencia"
+              className="h-16 sm:h-20 md:h-24 w-auto object-contain mt-2"
+            />
           </a>
 
           {/* Desktop links */}

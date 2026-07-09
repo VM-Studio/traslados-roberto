@@ -128,7 +128,9 @@ const translations = {
     form_date: "Fecha del viaje o evento",
     form_message: "Contanos más detalles",
     form_submit: "ENVIAR CONSULTA",
+    form_sending: "ENVIANDO...",
     form_success: "¡Gracias! Te contactamos pronto.",
+    form_error: "Hubo un problema al enviar tu consulta. Probá de nuevo o escribinos por WhatsApp.",
 
     // FOOTER
     footer_tagline: "Choferes habilitados con experiencia. Traslados en Escobar y Gran Buenos Aires.",
@@ -273,7 +275,9 @@ const translations = {
     form_date: "Trip or event date",
     form_message: "Tell us more details",
     form_submit: "SEND INQUIRY",
+    form_sending: "SENDING...",
     form_success: "Thank you! We'll be in touch soon.",
+    form_error: "Something went wrong sending your inquiry. Please try again or message us on WhatsApp.",
 
     // FOOTER
     footer_tagline: "Licensed drivers with experience. Transfers in Escobar and Greater Buenos Aires.",
