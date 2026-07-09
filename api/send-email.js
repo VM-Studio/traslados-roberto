@@ -84,8 +84,12 @@ export default async function handler(req, res) {
     })
 
     if (error) {
-      console.error('Resend error:', error)
-      return res.status(502).json({ ok: false, error: error.message || 'No se pudo enviar el email.' })
+      console.error('Resend error:', JSON.stringify(error))
+      const isDomainRestriction = error.message?.includes('own email address') || error.statusCode === 403
+      const friendlyError = isDomainRestriction
+        ? 'Resend bloqueó el envío: con el remitente de prueba (onboarding@resend.dev) solo se puede enviar al email con el que te registraste en Resend. Verificá un dominio en resend.com/domains para enviar a cualquier destinatario.'
+        : (error.message || 'No se pudo enviar el email.')
+      return res.status(502).json({ ok: false, error: friendlyError })
     }
 
     return res.status(200).json({ ok: true, id: data?.id })
