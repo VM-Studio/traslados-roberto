@@ -50,7 +50,9 @@ export default function Navbar() {
           >
             <img
               src="/logonavbar.png"
-              alt="Traslados con experiencia"
+              alt="Traslados con Experiencia - Choferes privados en Escobar y GBA"
+              width="200"
+              height="133"
               className="h-16 sm:h-20 md:h-24 w-auto object-contain mt-2"
             />
           </a>

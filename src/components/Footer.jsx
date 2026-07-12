@@ -30,8 +30,11 @@ export default function Footer() {
             >
               <img
                 src="/footer.png"
-                alt="Traslados con experiencia"
+                alt="Traslados con Experiencia - Choferes privados en Escobar y GBA"
+                width="200"
+                height="133"
                 className="h-28 sm:h-32 w-auto object-contain"
+                loading="lazy"
               />
             </a>
             <p className="font-sans text-xs text-brand-gray-light leading-relaxed mt-4 max-w-xs">

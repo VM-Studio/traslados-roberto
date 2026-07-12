@@ -1,15 +1,124 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- ===== Favicons ===== -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logonavbar.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Traslados con Experiencia | Servicios de Transporte — Escobar y GBA</title>
-    <meta name="description" content="Servicios de transporte privado en Escobar y Gran Buenos Aires. City tours bilingües, traslados para casamientos y eventos, valet parking. Choferes profesionales con experiencia." />
-    <meta name="keywords" content="servicios de transporte escobar, traslados privados escobar, city tour buenos aires, valet parking eventos, remis escobar, chofer bilingue turismo" />
-    <meta property="og:title" content="Traslados con Experiencia | Servicios de Transporte" />
-    <meta property="og:description" content="Servicios de transporte privado, city tours y traslados para eventos en Escobar y GBA." />
+    <meta name="theme-color" content="#0A0A0A" />
+
+    <!-- ===== Primary SEO ===== -->
+    <title>Traslados con Experiencia | Choferes Privados en Escobar y GBA</title>
+    <meta name="description" content="Traslados privados con choferes habilitados y bilingües en Escobar y Gran Buenos Aires. City tours, traslados para casamientos y eventos, atención personalizada. Consultá tu presupuesto sin compromiso." />
+    <meta name="keywords" content="traslados privados escobar, chofer privado escobar, city tour buenos aires bilingüe, traslados para casamientos, traslados para eventos gba, remis ejecutivo escobar, chofer bilingüe turismo buenos aires, transfer aeropuerto escobar" />
+    <meta name="author" content="Traslados con Experiencia" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="Spanish" />
+    <meta name="geo.region" content="AR-B" />
+    <meta name="geo.placename" content="Escobar, Buenos Aires" />
+
+    <!-- ===== Canonical ===== -->
+    <link rel="canonical" href="https://traslados-roberto.vercel.app/" />
+
+    <!-- ===== Open Graph / Facebook / WhatsApp ===== -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://traslados-roberto.vercel.app/" />
+    <meta property="og:site_name" content="Traslados con Experiencia" />
+    <meta property="og:title" content="Traslados con Experiencia | Choferes Privados en Escobar y GBA" />
+    <meta property="og:description" content="Choferes habilitados y bilingües para city tours, casamientos y eventos en Escobar y Gran Buenos Aires. Atención personalizada, presupuesto sin compromiso." />
+    <meta property="og:image" content="https://traslados-roberto.vercel.app/hero.png" />
+    <meta property="og:image:width" content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- ===== Twitter Card ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Traslados con Experiencia | Choferes Privados en Escobar y GBA" />
+    <meta name="twitter:description" content="Choferes habilitados y bilingües para city tours, casamientos y eventos en Escobar y Gran Buenos Aires." />
+    <meta name="twitter:image" content="https://traslados-roberto.vercel.app/hero.png" />
+
+    <!-- ===== Performance hints ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="/hero.png" media="(min-width: 640px)" />
+    <link rel="preload" as="image" href="/herocelular1.png" media="(max-width: 639px)" />
+
+    <!-- ===== Structured Data: LocalBusiness ===== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://traslados-roberto.vercel.app/#business",
+        "name": "Traslados con Experiencia",
+        "image": "https://traslados-roberto.vercel.app/hero.png",
+        "logo": "https://traslados-roberto.vercel.app/logonavbar.png",
+        "url": "https://traslados-roberto.vercel.app/",
+        "telephone": "+5491157161813",
+        "priceRange": "$$",
+        "description": "Servicio de traslados privados con choferes habilitados y bilingües en Escobar y Gran Buenos Aires. City tours, traslados para casamientos y eventos.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Escobar",
+          "addressRegion": "Buenos Aires",
+          "addressCountry": "AR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -34.3475,
+          "longitude": -58.7972
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Escobar" },
+          { "@type": "AdministrativeArea", "name": "Gran Buenos Aires" },
+          { "@type": "City", "name": "Ciudad de Buenos Aires" }
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        "sameAs": [
+          "https://wa.me/5491157161813"
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tours con Chofer Bilingüe",
+              "description": "Recorridos turísticos por Buenos Aires y la provincia con chofer bilingüe (español/inglés) licenciado en turismo."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Traslados para Eventos",
+              "description": "Traslados privados para casamientos, cumpleaños, recitales y eventos corporativos en Escobar y GBA."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- ===== Structured Data: WebSite ===== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Traslados con Experiencia",
+        "url": "https://traslados-roberto.vercel.app/"
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

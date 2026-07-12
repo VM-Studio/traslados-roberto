@@ -58,14 +58,16 @@ export default function Gallery() {
           <div className="w-3/4 aspect-[1916/821] overflow-hidden bg-brand-surface">
             <img
               src="/nosotros1.png"
-              alt="Nosotros"
+              alt="Equipo de choferes de Traslados con Experiencia en Escobar"
+              loading="lazy"
               className="w-full h-full object-contain object-center"
             />
           </div>
           <div className="w-1/4 overflow-hidden border-l border-brand-gold/20 bg-brand-surface">
             <img
               src="/nosotros2.png"
-              alt="Nosotros"
+              alt="Chofer privado bilingüe de Traslados con Experiencia"
+              loading="lazy"
               className="w-full h-full object-contain object-center"
             />
           </div>
