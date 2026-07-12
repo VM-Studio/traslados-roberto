@@ -140,7 +140,7 @@ const translations = {
     footer_link3: "Valet Parking",
     footer_follow: "SEGUINOS",
     footer_rights: "© 2025 Traslados con Experiencia. Todos los derechos reservados.",
-    footer_design: "Diseño web por [Tu Agencia]",
+    footer_design: "Diseñado por VM Studio",
 
     // WHATSAPP TOOLTIP
     whatsapp_tooltip: "Consultanos por WhatsApp",
@@ -287,7 +287,7 @@ const translations = {
     footer_link3: "Valet Parking",
     footer_follow: "FOLLOW US",
     footer_rights: "© 2025 Traslados con Experiencia. All rights reserved.",
-    footer_design: "Web design by [Your Agency]",
+    footer_design: "Designed by VM Studio",
 
     // WHATSAPP TOOLTIP
     whatsapp_tooltip: "Chat with us on WhatsApp",
