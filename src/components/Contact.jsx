@@ -137,7 +137,6 @@ export default function Contact() {
                       <option value="" disabled>{t('form_service_placeholder')}</option>
                       <option value="tour">{t('form_service_1')}</option>
                       <option value="evento">{t('form_service_2')}</option>
-                      <option value="valet">{t('form_service_3')}</option>
                       <option value="otro">{t('form_service_4')}</option>
                     </select>
                   </div>
