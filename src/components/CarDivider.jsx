@@ -20,18 +20,15 @@ export default function CarDivider() {
     <>
       <style>{`
         @keyframes drive {
-          from { left: -160px; }
-          to   { left: calc(100% + 160px); }
+          from { left: -180px; }
+          to   { left: calc(100% + 180px); }
         }
         .car-animate {
           animation: drive ${DURATION}s linear infinite;
           position: absolute;
           bottom: 25%;
-          height: 56px;
+          height: 48px;
           width: auto;
-          max-width: 160px;
-          object-fit: contain;
-          object-position: bottom center;
         }
       `}</style>
 
