@@ -47,31 +47,40 @@ export default function Gallery() {
           </h2>
         </motion.div>
 
-        {/* Tira de fotos: imagen principal (3/4) + imagen secundaria (1/4) */}
+        {/* Tira de fotos: tres imágenes iguales en fila, responsive en mobile */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="flex w-full mb-16 overflow-hidden border border-brand-gold/20 bg-brand-surface"
+          className="flex flex-col sm:flex-row gap-2 w-full mb-16"
         >
-          <div className="w-3/4 aspect-[1916/821] overflow-hidden bg-brand-surface">
+          <div className="w-full sm:w-1/3 aspect-[4/3] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
             <img
-              src="/nosotros1.png"
-              alt="Equipo de choferes de Traslados con Experiencia en Escobar"
+              src="/choferes1.png"
+              alt="Chofer profesional de Traslados con Experiencia en Escobar"
               loading="lazy"
-              className="w-full h-full object-contain object-center"
+              className="w-full h-full object-cover object-center"
             />
           </div>
-          <div className="w-1/4 overflow-hidden border-l border-brand-gold/20 bg-brand-surface">
+          <div className="w-full sm:w-1/3 aspect-[4/3] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
             <img
-              src="/nosotros2.png"
-              alt="Chofer privado bilingüe de Traslados con Experiencia"
+              src="/choferes2.png"
+              alt="Chofer profesional de Traslados con Experiencia en Escobar"
               loading="lazy"
-              className="w-full h-full object-contain object-center"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div className="w-full sm:w-1/3 aspect-[4/3] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
+            <img
+              src="/choferes3.png"
+              alt="Chofer profesional de Traslados con Experiencia en Escobar"
+              loading="lazy"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         </motion.div>
+
 
         {/* Grid de choferes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

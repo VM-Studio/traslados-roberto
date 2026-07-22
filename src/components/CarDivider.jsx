@@ -1,4 +1,16 @@
-// Reemplazar con imagen PNG de auto con fondo transparente para mejor resultado visual
+// Tira de autos de la flota pasando en loop infinito por la línea divisoria
+
+const CARS = [
+  '/flota/fordka.png',
+  '/flota/hondacivic.png',
+  '/flota/jeeprenegade.png',
+  '/flota/peugeot208.png',
+  '/flota/renaultlogan.png',
+  '/flota/toyotacorolla.png',
+]
+
+const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla
+const GAP = DURATION / CARS.length // separación pareja entre autos
 
 export default function CarDivider() {
   return (
@@ -9,7 +21,7 @@ export default function CarDivider() {
           to   { left: calc(100% + 160px); }
         }
         .car-animate {
-          animation: drive 8s linear infinite;
+          animation: drive ${DURATION}s linear infinite;
           position: absolute;
           top: 75%;
           transform: translateY(-70%);
@@ -29,13 +41,18 @@ export default function CarDivider() {
           }}
         />
 
-        {/* Auto animado */}
-        <img
-          src="/cardivider.png"
-          alt=""
-          className="car-animate"
-        />
+        {/* Autos de la flota animados en loop, con espacio parejo entre ellos */}
+        {CARS.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            className="car-animate"
+            style={{ animationDelay: `-${i * GAP}s` }}
+          />
+        ))}
       </div>
     </>
   )
 }
+
