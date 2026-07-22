@@ -1,5 +1,8 @@
-// Tira de autos de la flota pasando en loop infinito por la línea divisoria
-import { useState, useEffect } from 'react'
+// Tira de autos de la flota pasando en loop infinito por la línea divisoria.
+// Técnica: una sola fila de autos con gap fijo (mismo espacio adelante y atrás
+// en TODOS los autos), duplicada una vez, animada con translateX de 0 a -50%.
+// Como es un solo bloque que se repite idéntico, el espaciado es matemáticamente
+// perfecto y el loop es siempre continuo, sin importar el ancho de pantalla.
 import { useLanguage } from '../LanguageContext'
 
 const CARS = [
@@ -11,51 +14,35 @@ const CARS = [
   '/flota/toyotacorolla.png',
 ]
 
-const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla
-const CAR_WIDTH = 180 // ancho aprox. reservado por auto (coincide con el offset de la animación)
-const DESKTOP_PX_GAP = 260 // espacio real en píxeles entre auto y auto en desktop
-const MOBILE_PX_GAP = 130 // espacio real en píxeles entre auto y auto en mobile (más autos visibles a la vez, pero sin superponerse)
+const DURATION = 22 // segundos que tarda la tira completa en recorrer y repetirse
+
+function CarTrack() {
+  return (
+    <div className="flex items-end shrink-0 gap-16 sm:gap-24 pr-16 sm:pr-24">
+      {CARS.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt=""
+          className="h-10 sm:h-12 w-auto shrink-0"
+        />
+      ))}
+    </div>
+  )
+}
 
 export default function CarDivider() {
   const { t } = useLanguage()
-  const [trackLength, setTrackLength] = useState(1440)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 639px)')
-    const updateMq = () => setIsMobile(mq.matches)
-    updateMq()
-    mq.addEventListener('change', updateMq)
-
-    const updateWidth = () => setTrackLength(window.innerWidth + CAR_WIDTH * 2)
-    updateWidth()
-    window.addEventListener('resize', updateWidth)
-
-    return () => {
-      mq.removeEventListener('change', updateMq)
-      window.removeEventListener('resize', updateWidth)
-    }
-  }, [])
-
-  // Velocidad real (px/seg) del recorrido en esta pantalla
-  const speed = trackLength / DURATION
-  // Espaciado en píxeles deseado según el tamaño de pantalla, convertido a delay en segundos
-  const pxGap = isMobile ? MOBILE_PX_GAP : DESKTOP_PX_GAP
-  const gap = pxGap / speed
 
   return (
     <>
       <style>{`
-        @keyframes drive {
-          from { left: -180px; }
-          to   { left: calc(100% + 180px); }
+        @keyframes car-track-scroll {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
         }
-        .car-animate {
-          animation: drive ${DURATION}s linear infinite;
-          position: absolute;
-          bottom: 25%;
-          height: 48px;
-          width: auto;
+        .car-track {
+          animation: car-track-scroll ${DURATION}s linear infinite;
         }
       `}</style>
 
@@ -71,23 +58,23 @@ export default function CarDivider() {
 
         {/* Línea dorada que se desvanece en los extremos */}
         <div
-          className="absolute left-0 right-0 h-px"
+          className="absolute left-0 right-0 h-px z-10"
           style={{
             top: '75%',
             background: 'linear-gradient(to right, transparent 0%, #C9A96E 15%, #C9A96E 85%, transparent 100%)',
           }}
         />
 
-        {/* Autos de la flota animados en loop, con espacio parejo entre ellos (más separados en mobile) */}
-        {CARS.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt=""
-            className="car-animate"
-            style={{ animationDelay: `-${i * gap}s` }}
-          />
-        ))}
+        {/* Tira de autos duplicada, moviéndose como un único bloque continuo */}
+        <div
+          className="absolute flex items-end"
+          style={{ bottom: '25%', left: 0 }}
+        >
+          <div className="car-track flex items-end">
+            <CarTrack />
+            <CarTrack />
+          </div>
+        </div>
       </div>
     </>
   )
