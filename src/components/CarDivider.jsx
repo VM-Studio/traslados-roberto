@@ -11,26 +11,37 @@ const CARS = [
   '/flota/toyotacorolla.png',
 ]
 
-const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla (desktop, sin cambios)
-// En mobile la pantalla es angosta y los autos quedan muy juntos/superpuestos,
-// por eso ahí usamos menos autos a la vez con más espacio de tiempo entre cada uno.
-const MOBILE_GAP_MULTIPLIER = 2.2
+const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla
+const CAR_WIDTH = 180 // ancho aprox. reservado por auto (coincide con el offset de la animación)
+const DESKTOP_PX_GAP = 260 // espacio real en píxeles entre auto y auto en desktop
+const MOBILE_PX_GAP = 130 // espacio real en píxeles entre auto y auto en mobile (más autos visibles a la vez, pero sin superponerse)
 
 export default function CarDivider() {
   const { t } = useLanguage()
+  const [trackLength, setTrackLength] = useState(1440)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 639px)')
-    const update = () => setIsMobile(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
+    const updateMq = () => setIsMobile(mq.matches)
+    updateMq()
+    mq.addEventListener('change', updateMq)
+
+    const updateWidth = () => setTrackLength(window.innerWidth + CAR_WIDTH * 2)
+    updateWidth()
+    window.addEventListener('resize', updateWidth)
+
+    return () => {
+      mq.removeEventListener('change', updateMq)
+      window.removeEventListener('resize', updateWidth)
+    }
   }, [])
 
-  const gap = isMobile
-    ? (DURATION / CARS.length) * MOBILE_GAP_MULTIPLIER
-    : DURATION / CARS.length
+  // Velocidad real (px/seg) del recorrido en esta pantalla
+  const speed = trackLength / DURATION
+  // Espaciado en píxeles deseado según el tamaño de pantalla, convertido a delay en segundos
+  const pxGap = isMobile ? MOBILE_PX_GAP : DESKTOP_PX_GAP
+  const gap = pxGap / speed
 
   return (
     <>
