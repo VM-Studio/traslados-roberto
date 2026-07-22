@@ -1,4 +1,5 @@
 // Tira de autos de la flota pasando en loop infinito por la línea divisoria
+import { useState, useEffect } from 'react'
 import { useLanguage } from '../LanguageContext'
 
 const CARS = [
@@ -10,11 +11,26 @@ const CARS = [
   '/flota/toyotacorolla.png',
 ]
 
-const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla
-const GAP = DURATION / CARS.length // separación pareja entre autos
+const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla (desktop, sin cambios)
+// En mobile la pantalla es angosta y los autos quedan muy juntos/superpuestos,
+// por eso ahí usamos menos autos a la vez con más espacio de tiempo entre cada uno.
+const MOBILE_GAP_MULTIPLIER = 2.2
 
 export default function CarDivider() {
   const { t } = useLanguage()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)')
+    const update = () => setIsMobile(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  const gap = isMobile
+    ? (DURATION / CARS.length) * MOBILE_GAP_MULTIPLIER
+    : DURATION / CARS.length
 
   return (
     <>
@@ -51,18 +67,17 @@ export default function CarDivider() {
           }}
         />
 
-        {/* Autos de la flota animados en loop, con espacio parejo entre ellos */}
+        {/* Autos de la flota animados en loop, con espacio parejo entre ellos (más separados en mobile) */}
         {CARS.map((src, i) => (
           <img
             key={src}
             src={src}
             alt=""
             className="car-animate"
-            style={{ animationDelay: `-${i * GAP}s` }}
+            style={{ animationDelay: `-${i * gap}s` }}
           />
         ))}
       </div>
     </>
   )
 }
-

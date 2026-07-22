@@ -63,7 +63,7 @@ export default function Gallery() {
               className="w-full h-full object-cover object-center"
             />
           </div>
-          <div className="w-full sm:w-1/3 aspect-[4/3] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
+          <div className="w-full sm:w-1/3 aspect-[3/4] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
             <img
               src="/choferes2.png"
               alt="Chofer profesional de Traslados con Experiencia en Escobar"
@@ -71,7 +71,7 @@ export default function Gallery() {
               className="w-full h-full object-cover object-center"
             />
           </div>
-          <div className="w-full sm:w-1/3 aspect-[4/3] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
+          <div className="w-full sm:w-1/3 aspect-[3/4] sm:aspect-square overflow-hidden bg-brand-surface border border-brand-gold/20">
             <img
               src="/choferes3.png"
               alt="Chofer profesional de Traslados con Experiencia en Escobar"
