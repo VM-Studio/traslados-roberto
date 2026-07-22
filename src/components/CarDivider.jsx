@@ -1,4 +1,5 @@
 // Tira de autos de la flota pasando en loop infinito por la línea divisoria
+import { useLanguage } from '../LanguageContext'
 
 const CARS = [
   '/flota/fordka.png',
@@ -13,6 +14,8 @@ const DURATION = 18 // segundos que tarda un auto en cruzar toda la pantalla
 const GAP = DURATION / CARS.length // separación pareja entre autos
 
 export default function CarDivider() {
+  const { t } = useLanguage()
+
   return (
     <>
       <style>{`
@@ -23,12 +26,22 @@ export default function CarDivider() {
         .car-animate {
           animation: drive ${DURATION}s linear infinite;
           position: absolute;
-          top: 75%;
-          transform: translateY(-70%);
-          width: 160px;
-          height: auto;
+          bottom: 25%;
+          height: 56px;
+          width: auto;
+          max-width: 160px;
+          object-fit: contain;
+          object-position: bottom center;
         }
       `}</style>
+
+      {/* Mini título — mismo diseño que "LO QUE OFRECEMOS" */}
+      <div className="bg-brand-surface pt-12 pb-2 text-center">
+        <div className="w-12 h-px bg-brand-gold mx-auto mb-4" />
+        <p className="font-sans text-xs tracking-widest2 text-brand-gold uppercase">
+          {t('section_fleet_car_tag')}
+        </p>
+      </div>
 
       <div className="relative w-full h-20 bg-brand-surface overflow-hidden">
 

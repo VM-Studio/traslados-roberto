@@ -83,6 +83,7 @@ const translations = {
 
     // GALLERY / CHOFERES
     section_fleet_tag: "NUESTROS CHOFERES",
+    section_fleet_car_tag: "NUESTRA FLOTA",
     section_fleet_title: "El servicio lo hacen las personas.",
     driver1_name: "Pedro Ezequiel García",
     driver1_role: "Chofer principal · Bilingüe",
@@ -230,6 +231,7 @@ const translations = {
 
     // GALLERY / DRIVERS
     section_fleet_tag: "OUR DRIVERS",
+    section_fleet_car_tag: "OUR FLEET",
     section_fleet_title: "The service is made by people.",
     driver1_name: "Pedro Ezequiel García",
     driver1_role: "Lead Driver · Bilingual",
