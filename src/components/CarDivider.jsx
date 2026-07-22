@@ -38,8 +38,8 @@ export default function CarDivider() {
     <>
       <style>{`
         @keyframes car-track-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          from { transform: translateX(-50%); }
+          to   { transform: translateX(0); }
         }
         .car-track {
           animation: car-track-scroll ${DURATION}s linear infinite;
