@@ -7,7 +7,7 @@ export default function Stats() {
     { number: t('stat1_number'), label: t('stat1_label') },
     { number: t('stat2_number'), label: t('stat2_label') },
     { number: '2',   label: t('stat3_label') },
-    { number: 'GBA', label: t('stat4_label') },
+    { number: 'AR',  label: t('stat4_label') },
   ]
 
   return (

@@ -1,4 +1,4 @@
-import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useLanguage } from '../LanguageContext'
 
 const scrollTo = (id) => {
@@ -62,27 +62,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 — Redes + contacto */}
+          {/* Col 3 — Contacto */}
           <div>
             <p className="font-sans text-xs tracking-widest text-brand-gold uppercase mb-4">
               {t('footer_follow')}
             </p>
-            <div className="flex items-center gap-4 mb-6">
-              <a href="#" aria-label="Instagram" className="text-brand-gray-light hover:text-brand-gold transition-colors duration-300">
-                <FaInstagram className="text-xl" />
-              </a>
-              <a href="#" aria-label="Facebook" className="text-brand-gray-light hover:text-brand-gold transition-colors duration-300">
-                <FaFacebook className="text-xl" />
-              </a>
-            </div>
             <a
-              href="https://wa.me/5491157161813"
+              href="https://wa.me/5491171334444"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 font-sans text-sm text-brand-gray-light hover:text-brand-gold transition-colors duration-300"
             >
               <FaWhatsapp className="text-base text-green-500" />
-              +54 9 11 5716-1813
+              +54 9 11 7133-4444
             </a>
           </div>
         </div>

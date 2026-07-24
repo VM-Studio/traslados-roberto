@@ -79,7 +79,7 @@ const translations = {
     stat2_number: "4",
     stat2_label: "Choferes habilitados",
     stat3_label: "Servicio bilingüe",
-    stat4_label: "Escobar y GBA",
+    stat4_label: "Traslados en CABA, Gran Buenos Aires y ciudades del interior",
 
     // GALLERY / CHOFERES
     section_fleet_tag: "NUESTROS CHOFERES",
@@ -139,7 +139,7 @@ const translations = {
     footer_link1: "Tours con Chofer Bilingüe",
     footer_link2: "Traslados para Eventos",
     footer_link3: "Valet Parking",
-    footer_follow: "SEGUINOS",
+    footer_follow: "CONTACTANOS",
     footer_rights: "© 2025 Traslados con Experiencia. Todos los derechos reservados.",
     footer_design: "Diseñado por VM Studio",
 
@@ -227,7 +227,7 @@ const translations = {
     stat2_number: "4",
     stat2_label: "Licensed drivers",
     stat3_label: "Bilingual service",
-    stat4_label: "Escobar & GBA",
+    stat4_label: "Transfers in Buenos Aires City, Greater Buenos Aires and inland cities",
 
     // GALLERY / DRIVERS
     section_fleet_tag: "OUR DRIVERS",
@@ -287,7 +287,7 @@ const translations = {
     footer_link1: "Tours with Bilingual Driver",
     footer_link2: "Event Transfers",
     footer_link3: "Valet Parking",
-    footer_follow: "FOLLOW US",
+    footer_follow: "CONTACT US",
     footer_rights: "© 2025 Traslados con Experiencia. All rights reserved.",
     footer_design: "Designed by VM Studio",
 
