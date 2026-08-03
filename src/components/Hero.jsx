@@ -20,7 +20,18 @@ export default function Hero() {
     { line1: t('hero_title_1'), line2: t('hero_title_2') },
     { line1: t('hero_title_3'), line2: t('hero_title_4') },
     { line1: t('hero_title_5'), line2: t('hero_title_6') },
+    { line1: t('hero_title_7'), line2: t('hero_title_8') },
+    { line1: t('hero_title_9'), line2: t('hero_title_10') },
   ]
+
+  // Las frases más largas usan una tipografía un poco más chica
+  // para que entren cómodas en una sola línea, sin romper el layout.
+  const isLongTitle = (title) =>
+    title.line1.length > 22 || title.line2.length > 22
+  const titleSizeClass = (title) =>
+    isLongTitle(title)
+      ? 'text-3xl sm:text-4xl md:text-5xl'
+      : 'text-4xl sm:text-5xl md:text-7xl'
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -68,10 +79,10 @@ export default function Hero() {
               transition={{ duration: 0.6, ease: 'easeInOut' }}
             >
               <h1 className="w-full text-center text-balance">
-                <span className="block font-serif text-4xl sm:text-5xl md:text-7xl font-normal text-white italic">
+                <span className={`block font-serif ${titleSizeClass(heroTitles[currentTitle])} font-normal text-white italic`}>
                   {heroTitles[currentTitle].line1}
                 </span>
-                <span className="block font-serif text-4xl sm:text-5xl md:text-7xl font-semibold text-brand-gold">
+                <span className={`block font-serif ${titleSizeClass(heroTitles[currentTitle])} font-semibold text-brand-gold`}>
                   {heroTitles[currentTitle].line2}
                 </span>
               </h1>
