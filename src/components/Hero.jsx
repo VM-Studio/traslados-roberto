@@ -24,9 +24,13 @@ export default function Hero() {
     { line1: t('hero_title_9'), line2: t('hero_title_10') },
   ]
 
-  // Mismo tamaño de tipografía para todos los títulos, elegido para que
-  // entren cómodas incluso las frases más largas, sin romper el layout.
-  const titleSizeClass = 'text-3xl sm:text-4xl md:text-6xl'
+  // Mismo tamaño de tipografía para todos los títulos en sm/desktop.
+  // Solo en mobile, los primeros dos títulos (los más cortos) se ven un
+  // poco más grandes que el resto para aprovechar mejor el espacio.
+  const titleSizeClass = (index) =>
+    index < 2
+      ? 'text-4xl sm:text-4xl md:text-6xl'
+      : 'text-3xl sm:text-4xl md:text-6xl'
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -74,10 +78,10 @@ export default function Hero() {
               transition={{ duration: 0.9, ease: 'easeInOut' }}
             >
               <h1 className="w-full text-center text-balance">
-                <span className={`block font-serif ${titleSizeClass} font-normal text-white italic`}>
+                <span className={`block font-serif ${titleSizeClass(currentTitle)} font-normal text-white italic`}>
                   {heroTitles[currentTitle].line1}
                 </span>
-                <span className={`block font-serif ${titleSizeClass} font-semibold text-brand-gold`}>
+                <span className={`block font-serif ${titleSizeClass(currentTitle)} font-semibold text-brand-gold`}>
                   {heroTitles[currentTitle].line2}
                 </span>
               </h1>
