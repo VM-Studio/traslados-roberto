@@ -24,19 +24,14 @@ export default function Hero() {
     { line1: t('hero_title_9'), line2: t('hero_title_10') },
   ]
 
-  // Las frases más largas usan una tipografía un poco más chica
-  // para que entren cómodas en una sola línea, sin romper el layout.
-  const isLongTitle = (title) =>
-    title.line1.length > 22 || title.line2.length > 22
-  const titleSizeClass = (title) =>
-    isLongTitle(title)
-      ? 'text-3xl sm:text-4xl md:text-5xl'
-      : 'text-4xl sm:text-5xl md:text-7xl'
+  // Mismo tamaño de tipografía para todos los títulos, elegido para que
+  // entren cómodas incluso las frases más largas, sin romper el layout.
+  const titleSizeClass = 'text-3xl sm:text-4xl md:text-6xl'
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitle((prev) => (prev + 1) % heroTitles.length)
-    }, 3000)
+    }, 5500)
     return () => clearInterval(interval)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -76,13 +71,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, ease: 'easeInOut' }}
+              transition={{ duration: 0.9, ease: 'easeInOut' }}
             >
               <h1 className="w-full text-center text-balance">
-                <span className={`block font-serif ${titleSizeClass(heroTitles[currentTitle])} font-normal text-white italic`}>
+                <span className={`block font-serif ${titleSizeClass} font-normal text-white italic`}>
                   {heroTitles[currentTitle].line1}
                 </span>
-                <span className={`block font-serif ${titleSizeClass(heroTitles[currentTitle])} font-semibold text-brand-gold`}>
+                <span className={`block font-serif ${titleSizeClass} font-semibold text-brand-gold`}>
                   {heroTitles[currentTitle].line2}
                 </span>
               </h1>
